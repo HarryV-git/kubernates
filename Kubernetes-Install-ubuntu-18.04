@@ -9,6 +9,7 @@ Prerequisites
 Access to a user account on each system with sudo or root privileges
 The apt package manager, included by default
 Command-line/terminal window (Ctrl–Alt–T)
+Required - 2GB of RAM and 2 CPU - atleast - t2 Medium
 
 Step 1: Install Docker
 
