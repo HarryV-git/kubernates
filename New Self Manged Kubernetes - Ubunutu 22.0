@@ -13,6 +13,12 @@ Purpose   : Stable, demo-safe Kubernetes installation
 ----------------------------------------------------
 Step 1: Disable Swap - Kubernetes requires swap to be disabled for proper memory management.
 If swap is enabled, kubeadm will fail preflight checks.
+Kubernetes does not allow swap because it needs full control over memory management.
+swapoff -a disables swap so kubelet can work correctly.
+What is Swap (in simple terms)?
+Swap = disk space used as extra memory when RAM is full
+Slower than RAM
+OS may move memory pages between RAM ↔ disk - RAM full → OS pushes memory to disk (swap)
 ----------------------------------------------------
 sudo swapoff -a
 
