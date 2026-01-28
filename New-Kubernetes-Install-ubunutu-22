@@ -98,6 +98,12 @@ Step 3: Disable swap & enable kernel modules (Worker)
 Step 4: Set hostname (Worker)
    sudo hostnamectl set-hostname worker-node-1
 
+#####Note: - Required inbound rules on MASTER Security Group######
+| Type       | Protocol | Port     | Source                |
+| ---------- | -------- | -------- | --------------------- |
+| Custom TCP | TCP      | **6443** | Worker SG or VPC CIDR |
+If this port is blocked → exactly the timeout you’re seeing.
+
 Step 5: Join the Worker Node to Cluster
 Run EXACT command copied from master, example:
 
