@@ -186,6 +186,7 @@ Run the EXACT join command copied from master.
 This connects the worker to the control plane.
 
 sudo kubeadm join <MASTER-IP>:6443 --token <TOKEN> --discovery-token-ca-cert-hash sha256:<HASH> --cri-socket unix:///var/run/cri-dockerd.sock
+{** - Important - Add this Line at last - --cri-socket unix:///var/run/cri-dockerd.sock}
 
 ⏳ This may take 1–4 minutes. Do NOT interrupt.
 
