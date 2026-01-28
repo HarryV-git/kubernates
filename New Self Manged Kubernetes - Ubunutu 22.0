@@ -111,6 +111,11 @@ sudo hostnamectl set-hostname master-node
 -----------------------------------------------------------------------------------------------------------------
 Step 7: Initialize Kubernetes Control Plane - This command bootstraps the Kubernetes master
 and explicitly tells kubeadm to use Docker via cri-dockerd.
+
+Flannel uses 10.244.0.0/16 as its default pod network.
+When kubeadm initializes the cluster, Kubernetes must be told the same pod CIDR.
+If the CIDR doesn’t match, Flannel cannot allocate per-node subnets, /run/flannel/subnet.env is never created, and pod networking fails.
+That’s why --pod-network-cidr=10.244.0.0/16 is mandatory when using Flannel.
 -----------------------------------------------------------------------------------------------------------------
 
 sudo kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock --pod-network-cidr=10.244.0.0/16
