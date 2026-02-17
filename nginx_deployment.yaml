@@ -62,7 +62,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.29.3
+        image: nginx:1.28 # new version - nginx:1.29.3
         ports:
         - containerPort: 80
 
@@ -211,6 +211,7 @@ selector:
 1 canary
 ~20% traffic to new version
 It is simple round-robin / random distribution.
+
 
 
 
