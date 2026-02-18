@@ -75,13 +75,13 @@ spec:
     targetPort: 8080
 
 reference - How it works
-Frontend pod calls: http://backend-service
-Kubernetes DNS resolves it to: ClusterIP (10.x.x.x)
-Service forwards request to one of backend pods.
-Service DNS Format: - http://<service-name>
-Example - http://backend-service
-Full DNS Format (If Needed) - http://backend-service.<namespace>.svc.cluster.local
-Reference - http://backend-service.default.svc.cluster.local
+● Frontend pod calls: http://backend-service
+● Kubernetes DNS resolves it to: ClusterIP (10.x.x.x)
+● Service forwards request to one of backend pods.
+● Service DNS Format: - http://<service-name>
+● Example - http://backend-service
+● Full DNS Format (If Needed) - http://backend-service.<namespace>.svc.cluster.local
+● Reference - http://backend-service.default.svc.cluster.local
 
 
 🔄 So The Flow Is
