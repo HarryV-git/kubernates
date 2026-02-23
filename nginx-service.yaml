@@ -65,5 +65,23 @@ Pod receives on: 8080
 
 -->“port is the Service door. targetPort is the Pod door.”
 -->Service opens port 80 on its virtual IP.That port forwards traffic to the Pod’s targetPort.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+🔵 Loadbalancer - If we want Network Load Balancer
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: nginx
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+  - port: 80
+    targetPort: 80
 
 
