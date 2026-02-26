@@ -282,6 +282,35 @@ spec:
 ~20% traffic to new version
 It is simple round-robin / random distribution.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+🟨 Updated YAML with Resources
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.28
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"          # Minimum 0.1 CPU core guaranteed for this container
+            memory: "128Mi"      # Minimum 128 MiB memory guaranteed
+          limits:
+            cpu: "250m"          # Maximum 0.25 CPU core the container can use (CPU will be throttled if exceeded)
+            memory: "256Mi"      # Maximum 256 MiB memory allowed (container will be OOMKilled if exceeded)
 
 
 
